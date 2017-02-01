@@ -1,4 +1,4 @@
-/*! 
+/*!
  * jQuery Steps v1.0.4 - 12/17/2013
  * Copyright (c) 2013 Rafael Staib (http://www.jquery-steps.com)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
@@ -106,7 +106,7 @@ function analyzeData(wizard, options, state)
     {
         throwError(_missingCorrespondingElementErrorMessage, "titles");
     }
-        
+
     var startIndex = options.startIndex;
 
     state.stepCount = stepTitles.length;
@@ -115,7 +115,7 @@ function analyzeData(wizard, options, state)
     if (options.saveState && $.cookie)
     {
         var savedState = $.cookie(_cookiePrefix + getUniqueId(wizard));
-        // Sets the saved position to the start index if not undefined or out of range 
+        // Sets the saved position to the start index if not undefined or out of range
         var savedIndex = parseInt(savedState, 0);
         if (!isNaN(savedIndex) && savedIndex < state.stepCount)
         {
@@ -346,7 +346,7 @@ function getUniqueId(wizard)
 
 /**
  * Gets a valid enum value by checking a specific enum key or value.
- * 
+ *
  * @static
  * @private
  * @method getValidEnumValue
@@ -923,13 +923,13 @@ function removeStep(wizard, options, state, index)
     getStepPanel(wizard, index).remove();
     getStepAnchor(wizard, index).parent().remove();
 
-    // Set the "first" class to the new first step button 
+    // Set the "first" class to the new first step button
     if (index === 0)
     {
         wizard.find(".steps li").first().addClass("first");
     }
 
-    // Set the "last" class to the new last step button 
+    // Set the "last" class to the new last step button
     if (index === state.stepCount)
     {
         wizard.find(".steps li").eq(index).addClass("last");
@@ -1063,7 +1063,7 @@ function renderTemplate(template, substitutes)
 
     for (var i = 0; i < matches.length; i++)
     {
-        var match = matches[i], 
+        var match = matches[i],
             key = match.substring(1, match.length - 1);
 
         if (substitutes[key] === undefined)
@@ -1100,9 +1100,9 @@ function renderTitle(wizard, options, state, header, index)
             index: index + 1,
             title: header.html()
         }),
-        stepItem = $("<li role=\"tab\"><a id=\"" + uniqueStepId + "\" href=\"#" + uniqueHeaderId + 
+        stepItem = $("<li role=\"tab\"><a id=\"" + uniqueStepId + "\" href=\"#" + uniqueHeaderId +
             "\" aria-controls=\"" + uniqueBodyId + "\">" + title + "</a></li>");
-        
+
     if (!options.enableAllSteps)
     {
         stepItem._disableAria();
@@ -1195,7 +1195,7 @@ function startTransitionEffect(wizard, options, state, index, oldIndex)
                 posFadeOut = (index > oldIndex) ? -(outerWidth) : outerWidth,
                 posFadeIn = (index > oldIndex) ? outerWidth : -(outerWidth);
 
-            currentStep.animate({ left: posFadeOut }, effectSpeed, 
+            currentStep.animate({ left: posFadeOut }, effectSpeed,
                 function () { $(this)._hideAria(); }).promise();
             newStep.css("left", posFadeIn + "px")._showAria()
                 .animate({ left: 0 }, effectSpeed).promise();
@@ -1712,7 +1712,7 @@ var defaults = $.fn.steps.defaults = {
      */
 
     /**
-     * Sets the focus to the first wizard instance in order to enable the key navigation from the begining if `true`. 
+     * Sets the focus to the first wizard instance in order to enable the key navigation from the begining if `true`.
      *
      * @property autoFocus
      * @type Boolean
@@ -1793,7 +1793,7 @@ var defaults = $.fn.steps.defaults = {
     preloadContent: false,
 
     /**
-     * Shows the finish button always (on each step; right beside the next button) if `true`. 
+     * Shows the finish button always (on each step; right beside the next button) if `true`.
      * Otherwise the next button will be replaced by the finish button if the last step becomes active.
      *
      * @property showFinishButtonAlways
@@ -1863,8 +1863,8 @@ var defaults = $.fn.steps.defaults = {
      */
 
     /**
-     * Fires before the step changes and can be used to prevent step changing by returning `false`. 
-     * Very useful for form validation. 
+     * Fires before the step changes and can be used to prevent step changing by returning `false`.
+     * Very useful for form validation.
      *
      * @property onStepChanging
      * @type Event
@@ -1874,7 +1874,7 @@ var defaults = $.fn.steps.defaults = {
     onStepChanging: function (event, currentIndex, newIndex) { return true; },
 
     /**
-     * Fires after the step has change. 
+     * Fires after the step has change.
      *
      * @property onStepChanged
      * @type Event
@@ -1884,8 +1884,8 @@ var defaults = $.fn.steps.defaults = {
     onStepChanged: function (event, currentIndex, priorIndex) { },
 
     /**
-     * Fires before finishing and can be used to prevent completion by returning `false`. 
-     * Very useful for form validation. 
+     * Fires before finishing and can be used to prevent completion by returning `false`.
+     * Very useful for form validation.
      *
      * @property onFinishing
      * @type Event
@@ -1895,7 +1895,7 @@ var defaults = $.fn.steps.defaults = {
     onFinishing: function (event, currentIndex) { return true; },
 
     /**
-     * Fires after completion. 
+     * Fires after completion.
      *
      * @property onFinished
      * @type Event
@@ -1905,7 +1905,7 @@ var defaults = $.fn.steps.defaults = {
     onFinished: function (event, currentIndex) { },
 
     /**
-     * Contains all labels. 
+     * Contains all labels.
      *
      * @property labels
      * @type Object
