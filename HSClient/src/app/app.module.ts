@@ -1,19 +1,22 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module'
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {AppExceptionComponent} from './app-exception.component';
+import {AppExceptionHandler} from "./app-exception-handler";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppExceptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: AppExceptionHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

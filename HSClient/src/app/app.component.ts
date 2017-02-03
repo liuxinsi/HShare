@@ -1,6 +1,6 @@
 import {Component, AfterViewChecked} from '@angular/core';
 import {Router} from '@angular/router';
-import {SERVER_URL_KEY, TOKEN} from "./app.config";
+import {AppConfig} from './app.config';
 
 @Component({
   selector: 'app-root',
@@ -25,13 +25,13 @@ export class AppComponent implements AfterViewChecked {
   }
 
   startup() {
-    let url = localStorage.getItem(SERVER_URL_KEY);
-    console.debug("get server url from ls:" + url);
+    let url = localStorage.getItem(AppConfig.SERVER_URL_KEY);
+    console.debug('get server url from ls:' + url);
     if (url == null) {
-      console.debug("go to server config");
-      this._router.navigateByUrl("/serConfig");
+      console.debug('go to server config');
+      this._router.navigateByUrl('/serConfig');
     } else {
-      this._router.navigateByUrl("/login");
+      this._router.navigateByUrl('/login');
     }
   }
 }

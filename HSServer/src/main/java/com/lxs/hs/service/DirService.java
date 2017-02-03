@@ -26,7 +26,6 @@ public class DirService {
     @Path("/ls")
     @GET
     public List<File> listDir(@QueryParam("path") String path) {
-        System.out.println("111111");
         if (StringUtils.isEmpty(path)) {
             path = ".";
         }
